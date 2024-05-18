@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Long Words</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0c2c5;
+            color: #2069b3;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #161617;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #b4b5b7;
+            border: 1px solid #30363d;
+            color: #0f0f0f;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #238636;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2ea043;
+        }
+        .result {
+            margin-top: 10px;
+            background-color: #b3b7bc;
+            padding: 20px;
+            border-radius: 5px;
+            color: #0f0f10;
+        }
+        .highlight {
+            background-color: yellow;
+            color: black;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Highlight Long Words</h1>
+<div class="container">
+    <input type="text" id="textInput" placeholder="Enter your paragraph here...">
+    <button onclick="highlightLongWords()">Highlight</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function highlightLongWords() {
+        const textInput = document.getElementById('textInput').value;
+        const resultDiv = document.getElementById('result');
+
+        // Regular expression to split text into words, considering punctuation and spaces
+        const words = textInput.split(/(\s+|(?<=\.)\s+)/);
+
+        const highlightedText = words.map(word => {
+            // Check if word is longer than or equal to 8 characters
+            if (word.length >= 8) {
+                // Highlight the word
+                return `<span class="highlight">${word}</span>`;
+            }
+            return word;
+        }).join('');
+
+        resultDiv.innerHTML = highlightedText;
+    }
+</script>
+
+</body>
+</html>
