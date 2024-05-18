@@ -9,5 +9,5 @@
 
 
 
-**Task3: Highlighting Long Words in a Paragraph**
+**Task3: Highlight Long Words in a Paragraph**
 ![image](https://github.com/kavyasri31218/2100031218_Frontend/assets/110448010/8b986561-96f2-4a2d-a82c-bb2cd68cc09b)
